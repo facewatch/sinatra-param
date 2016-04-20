@@ -128,6 +128,13 @@ describe 'Parameter Types' do
         expect(parsed_body['arg']).to eq({ 'a' => 'b', 'c' => 'd'})
       end
     end
+
+    it 'returns 400 on requests when supplied array instead of hash' do
+      get('/coerce/hash', arg: [1, 2, 3]) do |response|
+        expect(response.status).to eql 400
+        expect(JSON.parse(response.body)['message']).to eq(%q('["1", "2", "3"]' is not a valid Hash))
+      end
+    end
   end
 
   describe 'Boolean' do
