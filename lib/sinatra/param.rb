@@ -99,7 +99,7 @@ module Sinatra
         return Hash[param.split(options[:delimiter] || ",").map{|c| c.split(options[:separator] || ":")}] if type == Hash
         return (/(false|f|no|n|0)$/i === param.to_s ? false : (/(true|t|yes|y|1)$/i === param.to_s ? true : nil)) if type == TrueClass || type == FalseClass || type == Boolean
         return nil
-      rescue ArgumentError
+      rescue ArgumentError, NoMethodError
         raise InvalidParameterError, "'#{param}' is not a valid #{type}"
       end
     end
