@@ -24,6 +24,13 @@ describe 'Parameter Types' do
         expect(JSON.parse(response.body)['message']).to eq("'123abc' is not a valid Integer")
       end
     end
+
+    it 'returns 400 on requests if supplied hash instead of number' do
+      get('/coerce/integer', arg: { '=' => 1234 }) do |response|
+        expect(response.status).to eql 400
+        expect(JSON.parse(response.body)['message']).to eq(%q('{"="=>"1234"}' is not a valid Integer))
+      end
+    end
   end
 
   describe 'Float' do

@@ -1,4 +1,4 @@
-# sinatra-param
+# sinatra-param [![Build Status](https://travis-ci.org/shhavel/sinatra-param.svg?branch=master)](https://travis-ci.org/shhavel/sinatra-param) [![Coverage Status](https://coveralls.io/repos/github/shhavel/sinatra-param/badge.svg?branch=master)](https://coveralls.io/github/shhavel/sinatra-param?branch=master)
 _Parameter Validation & Type Coercion for Sinatra_
 
 REST conventions take the guesswork out of designing and consuming web APIs. Simply `GET`, `POST`, `PATCH`, or `DELETE` resource endpoints, and you get what you'd expect.
@@ -16,13 +16,14 @@ This Sinatra extension takes a first step to solving this problem on the develop
 You can install `sinatra-param` from the command line with the following:
 
 ```bash
-$ gem install sinatra-param
+$ gem install specific_install
+$ gem specific_install shhavel/sinatra-param
 ```
 
 Alternatively, you can specify `sinatra-param` as a dependency in your `Gemfile` and run `$ bundle install`:
 
 ```ruby
-gem "sinatra-param", require: "sinatra/param"
+gem "sinatra-param", github: "shhavel/sinatra-param", require: "sinatra/param"
 ```
 
 ## Example
@@ -160,6 +161,7 @@ param :order_id_eq, Integer, scope: :q, min: 1, max: 2147483647
 ## Contact
 
 Mattt Thompson ([@mattt](http://twitter.com/mattt))
+Oleksandr Avoiants ([@shhavel](http://twitter.com/shhavel))
 
 ## License
 
