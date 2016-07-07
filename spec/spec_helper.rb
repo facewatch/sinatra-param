@@ -1,4 +1,4 @@
-unless ENV['CI']
+if ENV['CI']
   require 'simplecov'
   require 'coveralls'
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
